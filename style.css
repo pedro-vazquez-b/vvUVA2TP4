@@ -1,0 +1,57 @@
+.cards {
+    display: grid;
+    gap: 15px;
+    /* columnas fluidas con mínimo 180px */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    /* para que los spans rellenen huecos */
+    grid-auto-flow: dense;
+  }
+  
+  .card {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .card-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+  
+  /* variantes de ratio */
+  .card.ratio-1-1 {
+    grid-column: span 1; grid-row: span 1;
+    aspect-ratio: 1 / 1;
+  }
+  .card.ratio-2-1 {
+    grid-column: span 2; grid-row: span 1;
+    aspect-ratio: 2 / 1;
+  }
+  .card.ratio-1-2 {
+    grid-column: span 1; grid-row: span 2;
+    aspect-ratio: 1 / 2;
+  }
+  .card.ratio-2-2 {
+    grid-column: span 2; grid-row: span 2;
+    aspect-ratio: 2 / 2;
+  }
+  
+  /* ubicación fija de la última tarjeta */
+  .card.last {
+    grid-column-start: 3;
+    grid-row-start:    2;
+  }
+  
