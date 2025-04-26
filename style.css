@@ -1,57 +1,71 @@
 .cards {
     display: grid;
-    gap: 15px;
-    /* columnas fluidas con mínimo 180px */
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    /* para que los spans rellenen huecos */
-    grid-auto-flow: dense;
-  }
-  
-  .card {
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: repeat(2, 1fr);
+    gap: 1em;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
     width: 100%;
+    height: 100%;
     position: relative;
     overflow: hidden;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-  
-  .card img {
-    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-  
-  .card-overlay {
+}
+
+.card-overlay {
     position: absolute;
-    bottom: 0; left: 0; right: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    min-height: 4rem;
+    max-height: 6rem;
+
+    overflow: hidden;
+
     background: rgba(0, 0, 0, 0.6);
     color: #fff;
     padding: 12px;
     box-sizing: border-box;
-  }
-  
-  /* variantes de ratio */
-  .card.ratio-1-1 {
-    grid-column: span 1; grid-row: span 1;
+
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+
+    font-size: 0.7em;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.card.ratio-1-1 {
+    grid-column: span 1;
+    grid-row: span 1;
     aspect-ratio: 1 / 1;
-  }
-  .card.ratio-2-1 {
-    grid-column: span 2; grid-row: span 1;
+}
+
+.card.ratio-2-1 {
+    grid-column: span 2;
+    grid-row: span 1;
     aspect-ratio: 2 / 1;
-  }
-  .card.ratio-1-2 {
-    grid-column: span 1; grid-row: span 2;
+}
+
+.card.ratio-1-2 {
+    grid-column: span 1;
+    grid-row: span 2;
     aspect-ratio: 1 / 2;
-  }
-  .card.ratio-2-2 {
-    grid-column: span 2; grid-row: span 2;
-    aspect-ratio: 2 / 2;
-  }
-  
-  /* ubicación fija de la última tarjeta */
-  .card.last {
-    grid-column-start: 3;
-    grid-row-start:    2;
-  }
-  
+}
+
+.card.ratio-2-2 {
+    grid-column: span 2;
+    grid-row: span 2;
+    aspect-ratio: 1 / 1;
+}
